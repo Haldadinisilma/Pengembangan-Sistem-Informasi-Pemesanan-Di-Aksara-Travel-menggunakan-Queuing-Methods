@@ -9,6 +9,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KotaKeberangkatanController;
 use App\Http\Controllers\KotaTujuanController;
 use App\Http\Controllers\MitraController;
+use App\Http\Controllers\PemilikController;
 use App\Http\Controllers\PemesananAdminController;
 use App\Http\Controllers\PemesananController;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/pemesanan/barang/{pemesanan}/bayar', [PemesananController::class, 'bayarBarang'])->name('pemesanan.bayar-barang');
     Route::get('/pemesanan/barang/{pemesanan}', [PemesananController::class, 'showBarang'])->name('pemesanan.show-barang');
     Route::resource('/pemesanan', '\App\Http\Controllers\PemesananController');
+    Route::resource('/jadwal', '\App\Http\Controllers\JadwalController');
 
     Route::get('/beranda', [BerandaController::class, 'index']);
 

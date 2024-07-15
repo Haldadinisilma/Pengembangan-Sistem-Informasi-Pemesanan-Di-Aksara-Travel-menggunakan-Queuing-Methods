@@ -15,17 +15,21 @@ return new class extends Migration
     {
         Schema::create('mitra', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->string('alamat');
-            $table->string('email');
             $table->string('no_telepon');
             $table->string('nomor_polisi');
             $table->string('jenis_mobil');
+            $table->string('harga_sewa');
             $table->timestamps();
-
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('mitra');

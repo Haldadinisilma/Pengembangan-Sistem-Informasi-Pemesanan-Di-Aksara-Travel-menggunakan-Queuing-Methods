@@ -5,22 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mitra extends Model
+class Pemilik extends Model
 {
     use HasFactory;
 
-    protected $table = 'mitra';
-    
+    protected $table = 'pemilik';
+
+    protected $primaryKey = 'id'; // Kolom primary key
+
     protected $fillable = [
         'id',
         'user_id',
         'alamat',
-        'no_telepon',
-        'nomor_polisi',
-        'jenis_mobil',
-        'harga_sewa',
+        'nomor_telepon',
     ];
-
     public function user()
     {
         return $this->belongsTo(User::class);
